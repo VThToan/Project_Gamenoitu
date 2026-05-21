@@ -1,0 +1,2 @@
+Đặt các file slide trình chiếu định dạng PowerPoint (.ppt hoặc .pptx) của nhóm vào thư mục này.
+Ví dụ: Slide_Thuyết_minh_Game_Nối_Từ.pptx

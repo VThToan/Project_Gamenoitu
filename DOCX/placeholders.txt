@@ -1,0 +1,2 @@
+Đặt các file báo cáo định dạng Word (.doc hoặc .docx) của nhóm vào thư mục này.
+Ví dụ: Báo_cáo_đồ_án_Game_Nối_Từ.docx

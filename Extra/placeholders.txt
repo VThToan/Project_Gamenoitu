@@ -1,0 +1,2 @@
+Thư mục này dùng để chứa minh chứng kết quả đo stress test hiệu năng máy chủ và hình ảnh giao diện.
+Ví dụ: StressTest_Results.txt, GUI_Screenshot.png
