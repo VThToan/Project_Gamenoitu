@@ -131,6 +131,69 @@ partial class Form1
         cardGame.SuspendLayout();
         pnlPhongTop.SuspendLayout();
         SuspendLayout();
+        //
+        // Panel 
+        //
+        var pnlConnect = new Panel();
+        pnlConnect.Location = new Point(20, 20);
+        pnlConnect.Size = new Size(400, 220);
+        this.Controls.Add(pnlConnect);
+
+        // Label IP
+        var lblIp = new Label();
+        lblIp.Text = "Địa chỉ Server (IP):";
+        lblIp.Location = new Point(0, 10);
+        lblIp.AutoSize = true;
+        pnlConnect.Controls.Add(lblIp);
+        // TextBox IP
+        txtIp = new TextBox();
+        txtIp.Name = "txtIp";
+        txtIp.Text = "127.0.0.1";
+        txtIp.Location = new Point(0, 30);
+        txtIp.Size = new Size(200, 30);
+        pnlConnect.Controls.Add(txtIp);
+        // Label Port
+        var lblPort = new Label();
+        lblPort.Text = "Cổng (Port):";
+        lblPort.Location = new Point(0, 70);
+        lblPort.AutoSize = true;
+        pnlConnect.Controls.Add(lblPort);
+        // TextBox Port
+        txtPort = new TextBox();
+        txtPort.Name = "txtPort";
+        txtPort.Text = "8888";
+        txtPort.Location = new Point(0, 90);
+        txtPort.Size = new Size(200, 30);
+        pnlConnect.Controls.Add(txtPort);
+        // Label Nickname
+        var lblNickname = new Label();
+        lblNickname.Text = "Biệt danh:";
+        lblNickname.Location = new Point(0, 130);
+        lblNickname.AutoSize = true;
+        pnlConnect.Controls.Add(lblNickname);
+        // TextBox Nickname
+        txtNickname = new TextBox();
+        txtNickname.Name = "txtNickname";
+        txtNickname.PlaceholderText = "Nhập tên của bạn...";
+        txtNickname.Location = new Point(0, 150);
+        txtNickname.Size = new Size(200, 30);
+        pnlConnect.Controls.Add(txtNickname);
+        // Button Kết nối
+        btnConnect = new Button();
+        btnConnect.Name = "btnConnect";
+        btnConnect.Text = "Kết nối";
+        btnConnect.Location = new Point(210, 150);
+        btnConnect.Size = new Size(100, 30);
+        btnConnect.Click += btnConnect_Click;
+        pnlConnect.Controls.Add(btnConnect);
+        // Label Status
+        lblStatus = new Label();
+        lblStatus.Name = "lblStatus";
+        lblStatus.Text = "Chưa kết nối";
+        lblStatus.Location = new Point(0, 190);
+        lblStatus.AutoSize = true;
+        lblStatus.ForeColor = Color.Gray;
+        pnlConnect.Controls.Add(lblStatus);
         // 
         // pnlTopBar
         // 
@@ -804,6 +867,7 @@ partial class Form1
         btnThoat.TabIndex = 9;
         btnThoat.Text = "Thoát";
         btnThoat.UseVisualStyleBackColor = true;
+        btnThoat.Click += btnThoat_Click;
         // 
         // btnCaiDat
         // 
@@ -818,6 +882,7 @@ partial class Form1
         btnCaiDat.Text = "Cài đặt";
         btnCaiDat.TextAlign = ContentAlignment.MiddleLeft;
         btnCaiDat.UseVisualStyleBackColor = true;
+        btnCaiDat.Click += btnCaiDat_Click;
         // 
         // btnBangXepHang
         // 
@@ -832,6 +897,7 @@ partial class Form1
         btnBangXepHang.Text = "Bảng xếp hạng";
         btnBangXepHang.TextAlign = ContentAlignment.MiddleLeft;
         btnBangXepHang.UseVisualStyleBackColor = true;
+        btnBangXepHang.Click += btnBangXepHang_Click;
         // 
         // btnBanBe
         // 
@@ -846,6 +912,7 @@ partial class Form1
         btnBanBe.Text = "Bạn bè";
         btnBanBe.TextAlign = ContentAlignment.MiddleLeft;
         btnBanBe.UseVisualStyleBackColor = true;
+        btnBanBe.Click += btnBanBe_Click;
         // 
         // btnMenuThamGiaPhong
         // 
@@ -1270,6 +1337,11 @@ partial class Form1
 
     #endregion
 
+    private TextBox txtIp;
+    private TextBox txtPort;
+    private TextBox txtNickname;
+    private Button btnConnect;
+    private Label lblStatus;
     private Panel pnlTopBar;
     private Label lblTenUngDung;
     private TabControl tabMain;
