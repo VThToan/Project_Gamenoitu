@@ -134,9 +134,10 @@ partial class Form1
         //
         // Panel 
         //
-        var pnlConnect = new Panel();
+        pnlConnect = new Panel();
         pnlConnect.Location = new Point(20, 20);
         pnlConnect.Size = new Size(400, 220);
+        pnlConnect.Visible = false;
         this.Controls.Add(pnlConnect);
 
         // Label IP
@@ -165,27 +166,13 @@ partial class Form1
         txtPort.Location = new Point(0, 90);
         txtPort.Size = new Size(200, 30);
         pnlConnect.Controls.Add(txtPort);
-        // Label Nickname
-        var lblNickname = new Label();
-        lblNickname.Text = "Biệt danh:";
-        lblNickname.Location = new Point(0, 130);
-        lblNickname.AutoSize = true;
-        pnlConnect.Controls.Add(lblNickname);
-        // TextBox Nickname
-        txtNickname = new TextBox();
-        txtNickname.Name = "txtNickname";
-        txtNickname.PlaceholderText = "Nhập tên của bạn...";
-        txtNickname.Location = new Point(0, 150);
-        txtNickname.Size = new Size(200, 30);
-        pnlConnect.Controls.Add(txtNickname);
         // Button Kết nối
-        btnConnect = new Button();
-        btnConnect.Name = "btnConnect";
-        btnConnect.Text = "Kết nối";
-        btnConnect.Location = new Point(210, 150);
-        btnConnect.Size = new Size(100, 30);
-        btnConnect.Click += btnConnect_Click;
-        pnlConnect.Controls.Add(btnConnect);
+        //btnConnect = new Button();
+        //btnConnect.Name = "btnConnect";
+        //btnConnect.Text = "Kết nối";
+        //btnConnect.Location = new Point(210, 150);
+        //btnConnect.Size = new Size(100, 30);
+        //pnlConnect.Controls.Add(btnConnect);
         // Label Status
         lblStatus = new Label();
         lblStatus.Name = "lblStatus";
@@ -224,7 +211,7 @@ partial class Form1
         tabMain.Controls.Add(tabChoiNhanh);
         tabMain.Controls.Add(tabSanhCho);
         tabMain.Controls.Add(tabPhongChoi);
-        tabMain.Dock = DockStyle.Fill;
+        //tabMain.Dock = DockStyle.Fill;
         tabMain.ItemSize = new Size(0, 1);
         tabMain.Location = new Point(0, 48);
         tabMain.Multiline = true;
@@ -705,6 +692,7 @@ partial class Form1
         cardThamGiaPhong.Name = "cardThamGiaPhong";
         cardThamGiaPhong.Size = new Size(462, 236);
         cardThamGiaPhong.TabIndex = 3;
+        cardThamGiaPhong.Click += btnThamGiaPhong_Click;
         // 
         // btnThamGiaPhong
         // 
@@ -732,6 +720,7 @@ partial class Form1
         lblMoTaThamGiaPhong.TabIndex = 2;
         lblMoTaThamGiaPhong.Text = "Nhập mã phòng để\r\ntham gia cùng mọi người";
         lblMoTaThamGiaPhong.TextAlign = ContentAlignment.MiddleCenter;
+        lblMoTaThamGiaPhong.Click += btnThamGiaPhong_Click;
         // 
         // lblTieuDeThamGiaPhong
         // 
@@ -743,6 +732,7 @@ partial class Form1
         lblTieuDeThamGiaPhong.Size = new Size(213, 32);
         lblTieuDeThamGiaPhong.TabIndex = 1;
         lblTieuDeThamGiaPhong.Text = "THAM GIA PHÒNG";
+        lblTieuDeThamGiaPhong.Click += btnThamGiaPhong_Click;
         // 
         // lblIconThamGiaPhong
         // 
@@ -753,6 +743,7 @@ partial class Form1
         lblIconThamGiaPhong.Size = new Size(88, 68);
         lblIconThamGiaPhong.TabIndex = 0;
         lblIconThamGiaPhong.Text = "↪";
+        lblIconThamGiaPhong.Click += btnThamGiaPhong_Click;
         // 
         // cardTaoPhong
         // 
@@ -765,6 +756,7 @@ partial class Form1
         cardTaoPhong.Name = "cardTaoPhong";
         cardTaoPhong.Size = new Size(462, 236);
         cardTaoPhong.TabIndex = 2;
+        cardTaoPhong.Click += btnTaoPhong_Click;
         // 
         // btnTaoPhong
         // 
@@ -792,6 +784,7 @@ partial class Form1
         lblMoTaTaoPhong.TabIndex = 2;
         lblMoTaTaoPhong.Text = "Tạo phòng mới\r\nvà mời bạn bè cùng chơi";
         lblMoTaTaoPhong.TextAlign = ContentAlignment.MiddleCenter;
+        lblMoTaTaoPhong.Click += btnTaoPhong_Click;
         // 
         // lblTieuDeTaoPhong
         // 
@@ -803,6 +796,7 @@ partial class Form1
         lblTieuDeTaoPhong.Size = new Size(174, 32);
         lblTieuDeTaoPhong.TabIndex = 1;
         lblTieuDeTaoPhong.Text = "TẠO PHÒNG";
+        lblTieuDeTaoPhong.Click += btnTaoPhong_Click;
         // 
         // lblIconTaoPhong
         // 
@@ -813,6 +807,7 @@ partial class Form1
         lblIconTaoPhong.Size = new Size(80, 68);
         lblIconTaoPhong.TabIndex = 0;
         lblIconTaoPhong.Text = "+";
+        lblIconTaoPhong.Click += btnTaoPhong_Click;
         // 
         // lblMoTaSanhCho
         // 
@@ -1233,7 +1228,7 @@ partial class Form1
         lblBoDem.AutoSize = true;
         lblBoDem.Font = new Font("Segoe UI Black", 16F, FontStyle.Bold);
         lblBoDem.ForeColor = Color.ForestGreen;
-        lblBoDem.Location = new Point(580, 24);
+        lblBoDem.Location = new Point(500, 24);
         lblBoDem.Name = "lblBoDem";
         lblBoDem.Size = new Size(104, 30);
         lblBoDem.TabIndex = 1;
@@ -1285,12 +1280,25 @@ partial class Form1
         lblThongTinPhong.Size = new Size(269, 32);
         lblThongTinPhong.TabIndex = 0;
         lblThongTinPhong.Text = "Bạn chưa vào phòng nào";
+        // lblIDPhong
+        lblIDPhong = new Label();
+
+        lblIDPhong.AutoSize = true;
+        lblIDPhong.Font = new Font("Bahnschrift SemiBold", 16F, FontStyle.Bold);
+        lblIDPhong.ForeColor = Color.FromArgb(40, 65, 120);
+        lblIDPhong.Location = new Point(225, 30);
+        lblIDPhong.Name = "lblIDPhong";
+        lblIDPhong.Size = new Size(200, 30);
+        lblIDPhong.TabIndex = 0;
+        lblIDPhong.Text = "Mã phòng: ---";
+
+        cardGame.Controls.Add(lblIDPhong);
         // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(1440, 900);
+        ClientSize = new Size(1440, 800);
         Controls.Add(tabMain);
         Controls.Add(pnlTopBar);
         FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -1333,6 +1341,8 @@ partial class Form1
         pnlPhongTop.ResumeLayout(false);
         pnlPhongTop.PerformLayout();
         ResumeLayout(false);
+        pnlConnect.Visible = false;
+
     }
 
     #endregion
@@ -1434,4 +1444,5 @@ partial class Form1
     private Label lblTrangThaiPhong;
     private Label lblTrangThaiChat;
     private Label lblTrangThaiNguoiChoi;
+    private Label lblIDPhong;
 }
