@@ -76,18 +76,28 @@ namespace WordChain.Common
 
         // Nickname người đang đến lượt
         public string CurrentTurnNickname { get; set; } = "";
+
+        // Cài đặt phòng
+        public string RoomName { get; set; } = "";
+        public bool IsPrivate { get; set; }
+        public int TurnSeconds { get; set; } = 20;
     }
 
-    // Payload khi tạo phòng thành công
-    public class CreateRoomResponse
+    public class CreateRoomRequest
     {
-        public string RoomId { get; set; } = "";
+        public string RoomName { get; set; } = "";
+        public string Password { get; set; } = "";
+        public bool IsPrivate { get; set; }
+        public int MaxPlayers { get; set; } = 4;
+        public int TurnSeconds { get; set; } = 20;
+        public string GameMode { get; set; } = "Thường";
     }
 
     // Payload khi yêu cầu vào phòng
     public class JoinRoomRequest
     {
         public string RoomId { get; set; } = "";
+        public string Password { get; set; } = "";
     }
 
     // Payload gửi từ nối chữ
